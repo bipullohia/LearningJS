@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+
+/// COMPLICATED PROMISES ///
+        const testProm = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Bipul Lohia");
+            }, 1500)
+        });
+
+        const abc = el => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Name is: ' + el);
+                }, 2500)
+            });
+        }
+
+        // testProm.then((str) => {
+        //     console.log(str)
+        //     return abc(str);
+        // })sssss
+        // .then((str) => {
+        //     console.log(str);
+        // })
+        // .catch((err) => {
+        //     console.log(err);
+        // });
+
+        async function testAsync(){
+            const test = await testProm;
+            console.log(test);
+            const test2 = await abc(test);
+            console.log(test2);
+
+            return test;
+        }
+
+        testAsync().then(name => console.log("result: " + name));
+
+
+
+    
+
+    </script>
+</body>
+</html>
